@@ -4,6 +4,19 @@
   padding: 2rem;
   text-align: center;
 }
+/*
+$tron-orange: #df740c;
+$tron-yellow: #ffe64d;
+$tron-cyan: #6fc3df;
+$tron-blue: #00a8ff;
+$tron-blue-two: #00eaff;
+$tron-blue-three: #26b4ca;
+$tron-blue-four: #59b4c7;
+$tron-green: #0edf0c;
+$tron-blue-green: #0cdf74;
+$tron-yellow-two: #dfde0c;
+$tron-purple: #740cdf;
+*/
 
 .logo {
   height: 6em;
@@ -16,6 +29,13 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+#create-card {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
 }
 
 @keyframes logo-spin {
@@ -31,10 +51,6 @@
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
-
-.card {
-  padding: 2em;
 }
 
 .read-the-docs {

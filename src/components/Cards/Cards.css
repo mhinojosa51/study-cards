@@ -1,0 +1,24 @@
+#cards-container {
+    display: flex;
+    max-width: 1020px;
+    flex-direction: column;
+}
+
+#card-section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 200px;
+    height: 300px;
+    border: 2px solid #6fc3df;
+    cursor: pointer;
+}
+
+.card-back {
+    width: 200px;
+    height: 300px;
+    border: 2px solid #df740c;
+    cursor: pointer;
+}
