@@ -11,9 +11,7 @@ export const Cards: React.FC<{ cards: TCard[] }> = ({ cards }) => {
         setFilterText(ev.target.value);
     };
 
-    cards = useFilterData(cards, (card: TCard) => {
-        return filterText === "All" ? true : filterText === card.category;
-    });
+    cards = useFilterData(cards, filterText);
 
     return (
         <div id='cards-container'>
