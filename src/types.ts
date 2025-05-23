@@ -4,3 +4,8 @@ export type TCard = {
     frontCardText: string;
     backCardText: string;
 };
+
+export type TFilters = "category" | "search";
+export type TFilterObj = {
+    [Key in TFilters]: string;
+};
