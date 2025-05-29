@@ -1,1 +1,0 @@
-export { useFilterCardData } from "./useFilterCardData";
