@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { DecksContext, decksActionCreator } from "./DecksContext";
 import { CardsContext } from "../Cards/CardsContext";
 import { type Deck } from "../../types";
+import { createId } from "../../utils";
 import "./Decks.css";
 
 export const Decks: React.FC = () => {
@@ -13,7 +14,7 @@ export const Decks: React.FC = () => {
     console.dir(decks);
 
     const dummyDeck: Deck = {
-        id: 0,
+        id: createId(decks),
         name: "Dummy Deck",
         cards,
     };
