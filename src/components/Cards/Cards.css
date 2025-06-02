@@ -1,0 +1,9 @@
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.cards-container button {
+    cursor: pointer;
+    margin: 10px 0px 0px 0px;
+}
