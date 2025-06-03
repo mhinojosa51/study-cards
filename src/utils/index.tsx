@@ -1,5 +1,3 @@
-import { type Card } from "../types";
-
 type HasId = {
     id: number;
 };

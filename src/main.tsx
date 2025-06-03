@@ -7,6 +7,7 @@ import { CardsProvider } from "./components/Cards/CardsContext";
 import { Decks } from "./components/Decks";
 import { DecksProvider } from "./components/Decks/DecksContext";
 import { DeckBuilder } from "./components/DeckBuilder";
+import { AppRoutes } from "./common";
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
@@ -14,10 +15,14 @@ createRoot(document.getElementById("root")!).render(
             <DecksProvider>
                 <BrowserRouter>
                     <Routes>
-                        <Route path='/' element={<Cards />}></Route>
-                        <Route path='/decks' element={<Decks />}></Route>
                         <Route
-                            path='/deck-builder'
+                            path={AppRoutes.DEFAULT}
+                            element={<Cards />}></Route>
+                        <Route
+                            path={AppRoutes.DECKS}
+                            element={<Decks />}></Route>
+                        <Route
+                            path={AppRoutes.BUILDER}
                             element={<DeckBuilder />}></Route>
                     </Routes>
                 </BrowserRouter>
