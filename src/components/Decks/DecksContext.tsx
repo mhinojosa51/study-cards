@@ -1,7 +1,7 @@
 import { createContext, useReducer, type ReactNode } from "react";
 import { type Deck } from "../../types";
 
-const DecksActionTypes = {
+export const DecksActionTypes = {
     add: "add",
     delete: "delete",
 } as const;

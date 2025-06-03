@@ -6,28 +6,22 @@ import { Cards } from "./components/Cards";
 import { CardsProvider } from "./components/Cards/CardsContext";
 import { Decks } from "./components/Decks";
 import { DecksProvider } from "./components/Decks/DecksContext";
+import { DeckBuilder } from "./components/DeckBuilder";
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
-        <BrowserRouter>
-            <Routes>
-                <Route
-                    path='/'
-                    element={
-                        <CardsProvider>
-                            <Cards />
-                        </CardsProvider>
-                    }></Route>
-                <Route
-                    path='/decks'
-                    element={
-                        <CardsProvider>
-                            <DecksProvider>
-                                <Decks />
-                            </DecksProvider>
-                        </CardsProvider>
-                    }></Route>
-            </Routes>
-        </BrowserRouter>
+        <CardsProvider>
+            <DecksProvider>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path='/' element={<Cards />}></Route>
+                        <Route path='/decks' element={<Decks />}></Route>
+                        <Route
+                            path='/deck-builder'
+                            element={<DeckBuilder />}></Route>
+                    </Routes>
+                </BrowserRouter>
+            </DecksProvider>
+        </CardsProvider>
     </StrictMode>
 );

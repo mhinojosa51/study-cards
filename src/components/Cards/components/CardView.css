@@ -1,0 +1,20 @@
+.card {
+    width: 150px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.card-front {
+    border: 2px solid #6fc3df;
+}
+
+.card-back {
+    border: 2px solid #740cdf;
+}
+
+.card-selected {
+    border: 2px solid #740cdf;
+}

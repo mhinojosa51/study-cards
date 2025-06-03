@@ -1,42 +1,22 @@
 import { Link } from "react-router";
 import { useContext } from "react";
-import { DecksContext, decksActionCreator } from "./DecksContext";
-import { CardsContext } from "../Cards/CardsContext";
-import { type Deck } from "../../types";
-import { createId } from "../../utils";
+import { DecksContext } from "./DecksContext";
 import "./Decks.css";
 
 export const Decks: React.FC = () => {
-    const [cards, _] = useContext(CardsContext);
-    const [decks, dispatch] = useContext(DecksContext);
+    const [decks, _] = useContext(DecksContext);
 
     console.log("the decks state is: ");
     console.dir(decks);
 
-    const dummyDeck: Deck = {
-        id: createId(decks),
-        name: "Dummy Deck",
-        cards,
-    };
-
-    const onAddDeckHandler = (ev: React.MouseEvent<HTMLButtonElement>) => {
-        dispatch(decksActionCreator("add", dummyDeck));
-    };
-
-    const onDeleteDeckHandler = (ev: React.MouseEvent<HTMLButtonElement>) => {
-        dispatch(decksActionCreator("delete", dummyDeck));
-    };
+    console.log("rerendered decks page");
 
     return (
         <div className='decks-container'>
             <Link to={"/"}>Home Page</Link>
-            <button type='button'>Create</button>
-            <button type='button' onClick={onAddDeckHandler}>
-                Add
-            </button>
-            <button type='button' onClick={onDeleteDeckHandler}>
-                Delete
-            </button>
+            <Link to={"/deck-builder"}>
+                <button type='button'>Create</button>
+            </Link>
         </div>
     );
 };
