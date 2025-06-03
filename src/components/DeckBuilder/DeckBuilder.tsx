@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { useReducer, useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import { CardsContext } from "../Cards/CardsContext";
 import {
     DecksContext,
@@ -9,17 +9,16 @@ import {
 import { createId } from "../../utils";
 import { type Deck, type Card } from "../../types";
 import { CardView } from "../Cards/components/CardView";
+import { AppRoutes } from "../../common";
 import "./DeckBuilder.css";
 
 export const DeckBuilder: React.FC = () => {
+    const formRef = useRef<HTMLFormElement>(null);
     const [cards, _] = useContext(CardsContext);
     const [decks, dispatch] = useContext(DecksContext);
     const [selectedCardIds, setSelectedCardIds] = useState<Set<Card["id"]>>(
-        new Set([])
+        new Set()
     );
-
-    console.log("selected cards");
-    console.dir(selectedCardIds);
 
     const deckFormInputNames = {
         deckName: "deck-name",
@@ -46,6 +45,8 @@ export const DeckBuilder: React.FC = () => {
         };
 
         dispatch(decksActionCreator(DecksActionTypes.add, deck));
+        setSelectedCardIds(new Set());
+        formRef.current?.reset();
     };
 
     console.log("decks state");
@@ -54,10 +55,10 @@ export const DeckBuilder: React.FC = () => {
         <div className='deck-builder-container'>
             <h2>Deck Builder</h2>
             <section className='links'>
-                <Link to={"/"}>Home Page</Link>
-                <Link to={"/decks"}>Decks Page</Link>
+                <Link to={AppRoutes.DEFAULT}>Home Page</Link>
+                <Link to={AppRoutes.DECKS}>Decks Page</Link>
             </section>
-            <form onSubmit={onSubmitHandler}>
+            <form onSubmit={onSubmitHandler} ref={formRef}>
                 <section className='deck-section'>
                     <label htmlFor='deck-name'>Deck Name: </label>
                     <input
@@ -76,6 +77,7 @@ export const DeckBuilder: React.FC = () => {
                         <CardView
                             key={card.id}
                             onAddToDeckClickCallback={onAddToDeckClickCallback}
+                            isSelected={selectedCardIds.has(card.id)}
                             {...card}></CardView>
                     );
                 })}
