@@ -1,0 +1,23 @@
+.deck-builder-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.deck-builder-container a {
+    margin: 0px 10px 0px 0px;
+}
+
+.deck-builder-container form {
+    margin: 15px 0px 0px 0px;
+}
+
+#deck-submit-btn {
+    margin: 0px 0px 0px 15px;
+}
+
+.card-viewer-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
